@@ -122,12 +122,12 @@ BOARD_KERNEL_PAGESIZE :=  4096
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
+BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := kinzie_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8992
-TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -171,18 +171,10 @@ BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy
-
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
 -include device/motorola/kinzie/twrp.mk
 endif
-
-# Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_kinzie
-TARGET_RECOVERY_DEVICE_MODULES := libinit_kinzie
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true

@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 
 # Memory
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+#$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # NFC
 PRODUCT_COPY_FILES += \
@@ -244,5 +244,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-  ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-  ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.secure=0
